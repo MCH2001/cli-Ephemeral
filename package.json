@@ -1,0 +1,48 @@
+{
+  "name": "ephemeral-scratchpad-cli",
+  "version": "0.1.0",
+  "description": "Ephemeral multi-language scratchpad CLI for quick local experiments.",
+  "type": "module",
+  "bin": {
+    "scratch": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts --help",
+    "lint": "eslint . --ext .ts",
+    "test": "vitest run",
+    "test:watch": "vitest --watch",
+    "check": "npm run lint && npm run test && npm run build"
+  },
+  "dependencies": {
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@typescript-eslint/eslint-plugin": "^8.24.1",
+    "@typescript-eslint/parser": "^8.24.1",
+    "eslint": "^8.57.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vitest": "^2.1.8"
+  },
+  "keywords": [
+    "cli",
+    "scratchpad",
+    "typescript",
+    "developer-tools"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/martinchardenet/ephemeral-scratchpad-cli.git"
+  }
+}
