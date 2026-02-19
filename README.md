@@ -67,14 +67,14 @@ For guaranteed close detection, prefer an editor command that supports wait sema
 ## Development
 
 ```bash
-npm install
+npm ci
 npm run check
 ```
 
 ## CI/CD
 
-- `CI`: Runs lint, tests, and build on pull requests and pushes.
-- `Release`: Runs on git tags matching `v*`; publishes to npm if `NPM_TOKEN` is configured and creates a GitHub Release.
+- `CI`: Runs deterministic install (`npm ci`), then `npm run check` (typecheck, tests, build) and `npm pack --dry-run`.
+- `Release`: Runs on git tags matching `v*`; executes the same verification gate, requires `NPM_TOKEN`, then publishes to npm and creates a GitHub Release.
 
 Required secrets for publishing:
 

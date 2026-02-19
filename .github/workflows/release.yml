@@ -25,13 +25,20 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Verify
         run: npm run check
 
+      - name: Package smoke check
+        run: npm pack --dry-run
+
+      - name: Validate npm token
+        run: test -n "$NPM_TOKEN"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Publish to npm
-        if: ${{ secrets.NPM_TOKEN != '' }}
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
