@@ -39,6 +39,8 @@ scratch --ts
 
 ```bash
 scratch [--ts|--js|--py|--go] [--editor "code --wait"] [--dest <path>] [--keep-temp]
+scratch clean <path>
+scratch clean-all
 ```
 
 ### Flags
@@ -50,6 +52,17 @@ scratch [--ts|--js|--py|--go] [--editor "code --wait"] [--dest <path>] [--keep-t
 - `--editor <command>`: Override editor command
 - `--dest <path>`: Default save path if you choose to keep the scratchpad
 - `--keep-temp`: Keep the temp workspace after the session ends
+
+### Cleanup command
+
+Use `scratch clean <path>` to remove a scratch workspace that was preserved with `--keep-temp` or after a failed session.
+
+- `<path>` can be either the workspace directory itself or any file inside that workspace.
+- The command only deletes workspaces named `scratch-*` inside your OS temp directory for safety.
+
+Use `scratch clean-all` to remove all scratch workspaces in your OS temp directory in one command.
+
+- This only removes directories named `scratch-ts-*`, `scratch-js-*`, `scratch-py-*`, or `scratch-go-*`.
 
 ## Editor behavior
 
