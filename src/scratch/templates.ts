@@ -96,6 +96,95 @@ func main() {
 `
       }
     ]
+  },
+  c: {
+    language: 'c',
+    entrypoint: 'main.c',
+    files: [
+      {
+        path: 'main.c',
+        content: `#include <stdio.h>
+
+int main(void) {
+  puts("Scratch C says hi.");
+  return 0;
+}
+`
+      },
+      {
+        path: 'Makefile',
+        content: `CC ?= cc
+CFLAGS ?= -Wall -Wextra -pedantic -std=c11
+TARGET ?= app
+SRC := main.c
+
+all: $(TARGET)
+
+$(TARGET): $(SRC)
+\t$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
+
+run: $(TARGET)
+\t./$(TARGET)
+
+clean:
+\trm -f $(TARGET)
+
+.PHONY: all run clean
+`
+      }
+    ]
+  },
+  cpp: {
+    language: 'cpp',
+    entrypoint: 'main.cpp',
+    files: [
+      {
+        path: 'main.cpp',
+        content: `#include <iostream>
+
+int main() {
+  std::cout << "Scratch C++ says hi." << std::endl;
+  return 0;
+}
+`
+      },
+      {
+        path: 'Makefile',
+        content: `CXX ?= c++
+CXXFLAGS ?= -Wall -Wextra -pedantic -std=c++17
+TARGET ?= app
+SRC := main.cpp
+
+all: $(TARGET)
+
+$(TARGET): $(SRC)
+\t$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
+
+run: $(TARGET)
+\t./$(TARGET)
+
+clean:
+\trm -f $(TARGET)
+
+.PHONY: all run clean
+`
+      }
+    ]
+  },
+  java: {
+    language: 'java',
+    entrypoint: 'Main.java',
+    files: [
+      {
+        path: 'Main.java',
+        content: `public class Main {
+  public static void main(String[] args) {
+    System.out.println("Scratch Java says hi.");
+  }
+}
+`
+      }
+    ]
   }
 };
 

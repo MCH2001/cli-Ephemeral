@@ -7,7 +7,7 @@ A production-grade CLI for spinning up disposable scratch workspaces in your OS 
 When you need to test a tiny idea quickly, `scratch` gives you an instant workspace and a clean lifecycle:
 
 1. Creates a temporary directory (`/tmp` on Unix-like systems).
-2. Scaffolds a minimal language starter (`TypeScript`, `JavaScript`, `Python`, or `Go`).
+2. Scaffolds a minimal language starter (`TypeScript`, `JavaScript`, `Python`, `Go`, `C`, `C++`, or `Java`).
 3. Opens the workspace in your editor.
 4. When you are done, prompts you to either save it somewhere permanent or discard it.
 
@@ -38,7 +38,7 @@ scratch --ts
 ## Usage
 
 ```bash
-scratch [--ts|--js|--py|--go] [--editor "code --wait"] [--dest <path>] [--keep-temp]
+scratch [--ts|--js|--py|--go|--c|--cpp|--java] [--editor "code --wait"] [--dest <path>] [--keep-temp]
 scratch clean <path>
 scratch clean-all
 ```
@@ -49,6 +49,9 @@ scratch clean-all
 - `--js`: JavaScript scratchpad
 - `--py`: Python scratchpad
 - `--go`: Go scratchpad
+- `--c`: C scratchpad (includes a simple `Makefile`)
+- `--cpp`: C++ scratchpad (includes a simple `Makefile`)
+- `--java`: Java scratchpad
 - `--editor <command>`: Override editor command
 - `--dest <path>`: Default save path if you choose to keep the scratchpad
 - `--keep-temp`: Keep the temp workspace after the session ends
@@ -62,7 +65,7 @@ Use `scratch clean <path>` to remove a scratch workspace that was preserved with
 
 Use `scratch clean-all` to remove all scratch workspaces in your OS temp directory in one command.
 
-- This only removes directories named `scratch-ts-*`, `scratch-js-*`, `scratch-py-*`, or `scratch-go-*`.
+- This only removes directories named `scratch-ts-*`, `scratch-js-*`, `scratch-py-*`, `scratch-go-*`, `scratch-c-*`, `scratch-cpp-*`, or `scratch-java-*`.
 
 ## Editor behavior
 

@@ -50,16 +50,19 @@ describe('runCleanupAllCommand', () => {
 
     const firstWorkspace = path.join(isolatedTempRoot, 'scratch-py-first');
     const secondWorkspace = path.join(isolatedTempRoot, 'scratch-ts-second');
+    const thirdWorkspace = path.join(isolatedTempRoot, 'scratch-cpp-third');
     const unrelatedDir = path.join(isolatedTempRoot, 'not-scratch-workspace');
 
     await fs.mkdir(firstWorkspace, { recursive: true });
     await fs.mkdir(secondWorkspace, { recursive: true });
+    await fs.mkdir(thirdWorkspace, { recursive: true });
     await fs.mkdir(unrelatedDir, { recursive: true });
 
     await runCleanupAllCommand(isolatedTempRoot);
 
     expect(await pathExists(firstWorkspace)).toBe(false);
     expect(await pathExists(secondWorkspace)).toBe(false);
+    expect(await pathExists(thirdWorkspace)).toBe(false);
     expect(await pathExists(unrelatedDir)).toBe(true);
   });
 });

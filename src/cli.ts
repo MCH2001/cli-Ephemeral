@@ -10,11 +10,14 @@ const program = new Command();
 
 program
   .name('scratch')
-  .description('Create an ephemeral scratch workspace for TS, JS, Python, or Go.')
+  .description('Create an ephemeral scratch workspace for TS, JS, Python, Go, C, C++, or Java.')
   .option('--ts', 'Use TypeScript (default).')
   .option('--js', 'Use JavaScript.')
   .option('--py', 'Use Python.')
   .option('--go', 'Use Go.')
+  .option('--c', 'Use C.')
+  .option('--cpp', 'Use C++.')
+  .option('--java', 'Use Java.')
   .option('--editor <command>', 'Override the editor command (example: "code --wait").')
   .option('--dest <path>', 'Destination directory to use when saving the scratchpad.')
   .option('--keep-temp', 'Do not remove the temporary workspace when the session ends.')

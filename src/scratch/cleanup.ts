@@ -5,7 +5,7 @@ import { stdout } from 'node:process';
 
 import { pathExists, removeDirectory } from './fs.js';
 
-const SCRATCH_WORKSPACE_PATTERN = /^scratch-(ts|js|py|go)-/;
+const SCRATCH_WORKSPACE_PATTERN = /^scratch-(ts|js|py|go|c|cpp|java)-/;
 
 function isWithinDirectory(root: string, target: string): boolean {
   const relative = path.relative(root, target);

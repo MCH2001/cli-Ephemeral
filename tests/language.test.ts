@@ -11,6 +11,9 @@ describe('resolveLanguageFromFlags', () => {
     expect(resolveLanguageFromFlags({ js: true })).toBe('js');
     expect(resolveLanguageFromFlags({ py: true })).toBe('py');
     expect(resolveLanguageFromFlags({ go: true })).toBe('go');
+    expect(resolveLanguageFromFlags({ c: true })).toBe('c');
+    expect(resolveLanguageFromFlags({ cpp: true })).toBe('cpp');
+    expect(resolveLanguageFromFlags({ java: true })).toBe('java');
   });
 
   it('throws if multiple language flags are selected', () => {
